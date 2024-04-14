@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje para Gatito Seleccionado</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .kitten-image {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .kitten-message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .back-link {
+            margin-top: 30px;
+        }
+
+        .back-link a {
+            text-decoration: none;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Felicidades!</h1>
+        <p>Escogiste a <strong id="selectedKitten"></strong>.</p>
+        <p>¿A poco eres ese?</p>
+
+        <img id="kittenImage" class="kitten-image" src="" alt="Gatito">
+
+        <p class="kitten-message" id="kittenMessage"></p>
+    <script>
+        // Obtenemos el nombre del gatito seleccionado de localStorage
+        const selectedKitten = localStorage.getItem('selectedKitten');
+        // Mostramos el nombre del gatito en el elemento con id "selectedKitten"
+        document.getElementById('selectedKitten').textContent = selectedKitten;
+
+        // Cambiamos la imagen del gatito según el nombre seleccionado
+        const kittenImage = document.getElementById('kittenImage');
+        switch (selectedKitten) {
+            case 'Gatito 1':
+                kittenImage.src = 'https://i.pinimg.com/236x/c1/61/c8/c161c8eb9755205f66a499c50d807ead.jpg';
+                document.getElementById('kittenMessage').textContent = "¿Eres un esquizo acaso?";
+                break;
+            case 'Gatito 2':
+                kittenImage.src = 'https://i.pinimg.com/236x/f8/06/0f/f8060fc957d747ca712410561f0b34e2.jpg';
+                document.getElementById('kittenMessage').textContent = "te estresa la vida, ya relajate compa";
+                break;
+            case 'Gatito 3':
+                kittenImage.src = 'https://i.pinimg.com/236x/4e/51/4a/4e514a653eb0bfaddea9d48c91d88e1e.jpg';
+                document.getElementById('kittenMessage').textContent = "Saliste rebelde (eso vv, alocate)";
+                break;
+            // Agrega más casos para otros gatitos aquí
+            default:
+                kittenImage.src = 'https://via.placeholder.com/200?text=Gatito';
+        }
+    </script>
+</body>
+</html>
